@@ -1,16 +1,17 @@
 import React from 'react';
 import { View, Text, FlatList, StyleSheet } from 'react-native';
- 
+
 interface Country {
   id: string;
   name: string;
   currency: string;
+  code: string; // 
 }
- 
+
 interface CountriesProps {
   countries: Country[];
 }
- 
+
 export default function Countries({ countries }: CountriesProps) {
   return (
     <View style={styles.container}>
@@ -22,7 +23,9 @@ export default function Countries({ countries }: CountriesProps) {
           keyExtractor={(item) => item.id}
           renderItem={({ item }) => (
             <View style={styles.card}>
-              <Text style={styles.name}>{item.name}</Text>
+              <Text style={styles.name}>
+                {item.name} ({item.code})
+              </Text>
               <Text style={styles.currency}>Currency: {item.currency}</Text>
             </View>
           )}
@@ -31,7 +34,7 @@ export default function Countries({ countries }: CountriesProps) {
     </View>
   );
 }
- 
+
 const styles = StyleSheet.create({
   container: { flex: 1, padding: 20 },
   empty: { textAlign: 'center', marginTop: 20, fontSize: 16 },
