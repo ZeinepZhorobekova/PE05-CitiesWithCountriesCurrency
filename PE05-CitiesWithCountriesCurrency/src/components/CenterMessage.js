@@ -1,4 +1,3 @@
-// Listing 6.4 CenterMessage component
 import { Text, View, StyleSheet } from 'react-native'
 import { colors } from '../theme'
 
@@ -10,13 +9,18 @@ const CenterMessage = ({ message }) => (
 
 const styles = StyleSheet.create({
   emptyContainer: {
-    padding: 10,
-    borderBottomWidth: 2,
-    borderBottomColor: colors.primary
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+    backgroundColor: '#f0f4f8',
+    borderRadius: 10,
+    margin: 20,
   },
   message: {
-    alignSelf: 'center',
-    fontSize: 20
+    fontSize: 20,
+    color: colors.primary,
+    textAlign: 'center',
   }
 })
 
